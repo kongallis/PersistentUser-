@@ -47,6 +47,16 @@ public class UserImpl implements IUser {
         System.out.println("Record successfully inserted.");
     }
 
+    @Override
+    public boolean update(int id, User user) {
+        if(id <= 0) {
+            return false;
+        } else {
+            return userDao.update(id, user);
+        }
+    }
+
+
   
 
   

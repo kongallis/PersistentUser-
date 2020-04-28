@@ -17,5 +17,6 @@ public interface IUser {
     List<User> findAll();
     boolean deleteById(int id);
     void save(User user);
+         boolean update(int id, User user);
     
 }

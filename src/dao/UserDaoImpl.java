@@ -56,11 +56,27 @@ public class UserDaoImpl implements IUserDao {
 
     @Override
     public void save(User user) {
-         em.getTransaction().begin();
-      em.persist(user);      
-      em.getTransaction().commit();
+        em.getTransaction().begin();
+        em.persist(user);
+        em.getTransaction().commit();
     }
 
-   
+    @Override
+    public boolean update(int id, User user) {
+        em.getTransaction().begin();
+        User validUser = em.find(User.class, id);
+        if (validUser != null) {
+            validUser.setFirstName(user.getFirstName());
+            validUser.setLastName(user.getLastName());
+            validUser.setTel(user.getTel());
+            validUser.setEmail(user.getEmail());
+            em.getTransaction().commit();
+            return true;
+        } else {
+            em.getTransaction().commit();
+            return false;
+        }
+
+    }
 
 }

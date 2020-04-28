@@ -3,10 +3,7 @@ package persistentuser;
 import entities.User;
 import java.util.List;
 
-
-
 public class PersistentUser {
-
 
     public static void main(String[] args) {
 
@@ -29,24 +26,26 @@ public class PersistentUser {
             System.out.println(user1);
         }
 
-//        boolean delete = userService.deleteById(1);
-//        if (delete) {
-//            System.out.println("User id: " + 1 + " deleted successfully");
-//        }
-        //O bject user with the new data 
-        // If the Id is valid then update, otherwise not
-        //userService.updateById(id, user);  
+        boolean delete = userService.deleteById(1);
+        if (delete) {
+            System.out.println("User id: " + 1 + " deleted successfully");
+        }
+ 
         User usr = new User();
         usr.setFirstName("John");
         usr.setLastName("Adams");
         usr.setEmail("jadams@gmail.com");
         usr.setTel("0123456789");
-       userService.save(usr);
-       
-       users = userService.findAll();
-        for (User user1 : users) {
-            System.out.println(user1);
-        }
+        userService.save(usr);
+
+      
+
+        User upUsr = new User();
+        upUsr.setFirstName("John");
+        upUsr.setLastName("Smith");
+        upUsr.setEmail("jadams@gmail.com");
+        upUsr.setTel("0101010203");
+        userService.update(3, upUsr);
 
     }
 

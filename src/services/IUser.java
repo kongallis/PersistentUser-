@@ -16,6 +16,6 @@ public interface IUser {
     User findById(int id);
     List<User> findAll();
     boolean deleteById(int id);
-    
+    void save(User user);
     
 }

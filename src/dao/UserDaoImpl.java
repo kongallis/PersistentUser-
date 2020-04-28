@@ -54,6 +54,13 @@ public class UserDaoImpl implements IUserDao {
         }
     }
 
+    @Override
+    public void save(User user) {
+         em.getTransaction().begin();
+      em.persist(user);      
+      em.getTransaction().commit();
+    }
+
    
 
 }

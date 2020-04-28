@@ -41,6 +41,12 @@ public class UserImpl implements IUser {
         }
     }
 
+    @Override
+    public void save(User user) {
+        userDao.save(user);
+        System.out.println("Record successfully inserted.");
+    }
+
   
 
   
